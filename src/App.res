@@ -4,12 +4,15 @@
 let colNumber = 100
 let rowNumber = 100
 let cellSize = 10 // px
+let cellSizePx = cellSize->Belt.Int.toString ++ "px"
 let iterationMs = 250
 let totalCells = colNumber * rowNumber
 type state = {cells: array<Cell.t>}
-let state = {
-  cells: [],
-}
+
+// this was included in the video but never used. derp
+// let state = {
+//  cells: [],
+// }
 type actions = HandleCellInterval
 
 let reducer = (state, action) => {
@@ -21,7 +24,6 @@ let reducer = (state, action) => {
 }
 
 let randomCells = Cell.randomizeCells(totalCells)
-let cellSizePx = cellSize->Belt.Int.toString ++ "px"
 @react.component
 let make = () => {
   let (state, dispatch) = React.useReducer(
